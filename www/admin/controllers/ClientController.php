@@ -63,8 +63,8 @@ class ClientController
             $address = $_POST['address'];
 
             require_once('models/ClientModel.php');
-            $clientModel = new ClientModel();
-            $clientModel->saveEditClient($id,$name,$email,$phone,$address);
+            $ClientModel = new ClientModel();
+            $ClientModel->saveEditClient($id,$name,$email,$phone,$address);
             
         }
         header('Location:?controller=client&action=listClients');

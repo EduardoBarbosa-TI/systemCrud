@@ -29,7 +29,7 @@
          require_once('db/ConetionClass.php');
          $connectClass = new ConetionClass();
          $connectClass->openConetion();
-         $connection = $connectClass->getConn();+
+         $connection = $connectClass->getConn();
 
          $sqlUpdate = "UPDATE clients SET name='$name',phone='$phone',email='$email',address='$address' WHERE idClient='$id'"; 
 
