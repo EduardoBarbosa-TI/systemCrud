@@ -1,14 +1,14 @@
 <?php
    class ClientModel{  
 
-      public function registrationClients(){ 
+      public function registerClients($name,$phone,$email,$address){ 
          require_once('db/ConetionClass.php');
          $connectClass = new ConetionClass();
          $connectClass->openConetion();
          $connection = $connectClass->getConn();
 
       
-         $sql = "SELECT * FROM clients"; 
+         $sql= "INSERT clients SET name='$name',phone='$phone',email='$email',address='$address'"; 
    
          return $connection -> query($sql);
       }

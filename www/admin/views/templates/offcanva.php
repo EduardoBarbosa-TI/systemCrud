@@ -11,7 +11,7 @@
                 </button>
                 <div class="collapse" id="collapseExample01">
                     <ul class=" mt-3">
-                        <li><a class="dropdown-item" href="?controller=client&action=registrationClients">Cadastrar CLientes</a></li>
+                        <li><a class="dropdown-item" href="?controller=client&action=registerClient">Cadastrar CLientes</a></li>
                         <li><a class="dropdown-item" href="?controller=client&action=listClients">Listar Clientes</a></li>
                     </ul>
                 </div>

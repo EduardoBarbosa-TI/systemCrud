@@ -41,12 +41,12 @@ if (!isset($_GET['controller'])) {
                 $ClientController->index();
             } else {
                 switch ($_REQUEST['action']) {
-                    case 'registrationClients':
-                            $ClientController->registrationClients();
+                    case 'registerClient':
+                            $ClientController->registerClients();
                         break;
                     case 'editClient':
                         if (!isset($_GET['id'])) {
-                            $ClientController->registrationClients();
+                            $ClientController->registerClients();
                         } else {
                             $ClientController->editClient();
                         }
