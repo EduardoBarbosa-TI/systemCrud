@@ -14,63 +14,65 @@
 </head>
 
 <body>
-    <?php if(isset($_SESSION['messageInvalidPassword'])){?>
-     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-sm-12 alert alert-danger fade show" tabindex="-1" role="alert">
-                <strong>Senha inválida</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <?php if (isset($_SESSION['messageInvalidPassword'])) { ?>
+        <div class="container-fluid messageInvalid position-absolute top-50 start-50 translate-middle w-50">
+            <div class="row">
+                <div class="col-12 col-sm-6 offset-sm-3 alert alert-danger fade show text-center" tabindex="-10" role="alert">
+                    <strong>Senha inválida</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
         </div>
-     </div>
-    <?php 
-    unset($_SESSION['messageInvalidPassword']);
-    }?>
+    <?php
+        unset($_SESSION['messageInvalidPassword']);
+    } ?>
 
-    <?php if(isset($_SESSION['messageInvalidNameAndPassword'])){?>
-     <div class="container-fluid ">
-        <div class="row">
-            <div class="col-12 col-sm-12 alert alert-danger fade show" tabindex="-1" role="alert">
-                <strong>Senha ou Usuário inválido</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+ <?php if (isset($_SESSION['messageInvalidNameAndPassword'])) { ?>
+            <div class="container-fluid messageInvalid position-absolute top-50 start-50 translate-middle w-50">
+                <div class="row">
+                    <div class="col-12 col-sm-6 offset-sm-3 alert alert-danger fade show text-center" tabindex="-10" role="alert">
+                        <strong>Senha ou Usuário inválido</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
             </div>
-        </div>
-     </div>
-     
-    <?php 
-        unset($_SESSION['messageInvalidNameAndPassword']);
-    }
-    ?>
 
-    <header class="container-fluid bg-primary p-5">
-        <h1 class="text-white">Login</h1>
+        <?php
+            unset($_SESSION['messageInvalidNameAndPassword']);
+        }
+        ?>
+
+
+    <header class="container-fluid bg-primary py-5">
+        <h1 class="text-white m-4 mt-0">Login</h1>
     </header>
 
-    <section class="container my-3">
+    <section class="container py-5">
         <div class="row">
-            <div class="col-12 col-sm-12">
-                <h3>Login do Sistema</h3>
-            </div>
-            <div class="col-12 col-sm-12">
-                <form action="?controller=user&action=validationLogin" class="row g-3 needs-validation" method="POST">
-                    <div class="col-md-12">
-                        <label for="validationTooltip01" class="form-label">Login</label>
-                        <input type="text" name="userName" class="form-control" id="validationTooltip01" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-12">
-                            <input type="password" name="password" class="form-control" id="inputPassword" required>
+            <div class="col-12 col-sm-6 offset-sm-3">
+                <div class="text-center">
+                    <h3>Login do Sistema</h3>
+                </div>
+                <div>
+                    <form action="?controller=user&action=validationLogin" class="row g-3 needs-validation" method="POST">
+                        <div class="col-md-12">
+                            <label for="validationTooltip01" class="form-label">Login</label>
+                            <input type="text" name="userName" class="form-control" id="validationTooltip01" required>
                         </div>
-                    </div>       
-                    <div class="col-12">
-                        <button class="btn btn-primary" type="submit" href="?controller=user&action=login">Submit form</button>
-                    </div>
-                </form>
+                        <div class="col-md-12">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-12">
+                                <input type="password" name="password" class="form-control" id="inputPassword" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit" href="?controller=user&action=login">Submit form</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
-
 </body>
 
 </html>

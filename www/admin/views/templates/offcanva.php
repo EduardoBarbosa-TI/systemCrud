@@ -22,7 +22,7 @@
                 </button>
                 <div class="collapse" id="collapseExample02">
                     <ul class="mt-3">
-                        <li><a class="dropdown-item" href="?controller=products&action=registrationProducts">Cadastrar Produtos</a></li>
+                        <li><a class="dropdown-item" href="?controller=products&action=registerProducts">Cadastrar Produtos</a></li>
                         <li><a class="dropdown-item" href="?controller=products&action=listProducts">Listar Produtos</a></li>
                     </ul>
                 </div>

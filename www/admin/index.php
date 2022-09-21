@@ -21,7 +21,8 @@ if (!isset($_GET['controller'])) {
                         break;
                 }
             }
-            break;
+        break;
+
         case 'user':
             require_once('controllers/UserController.php');
             $UserController = new UserController();
@@ -33,7 +34,8 @@ if (!isset($_GET['controller'])) {
                         break;
                 }
             }
-            break;
+        break;
+
         case 'client':
             require_once('controllers/ClientController.php');
             $ClientController = new ClientController();
@@ -65,7 +67,8 @@ if (!isset($_GET['controller'])) {
                         break;
                 }
             }
-            break;
+        break;
+
         case 'contacts':
             require_once('controllers/ContactsController.php');
             $contact = new ContactsController();
@@ -82,7 +85,8 @@ if (!isset($_GET['controller'])) {
                 }
             }
 
-            break;
+        break;
+        
         case 'products':
             require_once('controllers/ProductsController.php');
             $products = new ProductsController();
@@ -90,14 +94,20 @@ if (!isset($_GET['controller'])) {
                 $products->listProducts();
             } else {
                 switch ($_REQUEST['action']) {
-                    case 'registrationProducts':
-                        $products->registrationProducts();
+                    case 'registerProducts':
+                        $products->registerProducts();
                         break;
                     case 'listProducts':
                         $products->listProducts();
-                        break;
+                    break;
+                    case 'consultProduct':
+                        $products ->consultProducts();
+                    break;
+                    case 'deleteProduct':
+                        $products ->deleteProduct();
+                    break;
                 }
             }
-            break;
+        break;
     }
 }
