@@ -17,9 +17,6 @@
                 $description = $_POST['description'];
                 $category=$_POST['category'];
                  
-
-
-
                 $ProductModel ->registerProducts($name,$price,$description,$category);
             } 
 
@@ -56,10 +53,10 @@
                 require_once('models/ProductsModel.php');
                 $ProductModel = new ProductsModel();
                 $result = $ProductModel->consultProduct($id);
-    
+        
                 $arrayProducts =  array();
-                if ($result->num_rows > 0) {
     
+                if ($result->num_rows > 0) {
                     while ($product = $result->fetch_assoc()) {
                         array_push($arrayProducts, $product);
                         $name = $product['name'];
@@ -67,8 +64,6 @@
                         $description = $product['description'];
                         // $category = $product['category'];
                     }
-    
-    
                     require_once('views/templates/header.php');
                     require_once('views/templates/offcanva.php');
                     require_once('views/templates/home.php');
@@ -77,7 +72,26 @@
                 } else {
                     header('Location: ?controller=products&action=listProducts');
                 }
+                
             }
+
+        }
+
+        public function editProduct(){
+
+            if(isset($_POST['update'])){
+                $id = $_POST['idProduct'];
+                $name = $_POST['name'];
+                $price = $_POST['price'];
+                $description = $_POST['description'];
+              
+    
+                require_once('models/ProductsModel.php');
+                $ProductsModel = new ProductsModel();
+                $ProductsModel->editProduct($id,$price,$name,$description);
+                
+            }
+            header('Location:?controller=products&action=listProducts');
 
         }
 
@@ -94,15 +108,11 @@
                     $ProductModel->deleteProduct($id);
                 } 
                 
-                header('Location: ?controller=products&action=listProducts');
-                
+                header('Location: ?controller=products&action=listProducts'); 
             }
     
 
         }
-
-
-
 
     }
 ?>

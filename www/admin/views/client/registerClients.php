@@ -1,3 +1,13 @@
+<?php if (isset($_POST['submit'])) { ?>
+        <div class="container-fluid messageInvalid position-absolute top-25 start-50 translate-middle w-100">
+            <div class="row">
+                <div class="col-12 col-sm-6 offset-sm-3 alert alert-success fade show text-center" tabindex="-10" role="alert">
+                    <strong>Cliente Cadastrado</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    <?php  } ?>
 <div class="col-12 col-sm-12">
     <h2>Cadastro de Clientes</h2>
     <form class="row g-3" method="POST" action="?controller=client&action=registerClient">
@@ -23,6 +33,7 @@
             <button class="btn btn-primary" name='submit' type="submit">Submit form</button>
         </div>
     </form>
+   
 </div>
 </div>
 </div>

@@ -6,9 +6,6 @@ class ClientController
 {
 
     public function registerClients(){
-        require_once('models/ClientModel.php');
-        $clientModel = new ClientModel();
-
         require_once('views/templates/header.php');
         require_once('views/templates/offcanva.php');
         require_once('views/templates/home.php');
@@ -16,15 +13,16 @@ class ClientController
         require_once('views/templates/footer.php');
 
         if(isset($_POST['submit'])){
-
             $name = $_POST['name'];
             $phone = $_POST['phone'];
             $email = $_POST['email'];
             $address = $_POST['address'];
 
-            $clientModel ->registerClients($name,$phone,$email,$address);
-        } 
-
+            require_once('models/ClientModel.php');
+            $ClientModel = new ClientModel();
+            $ClientModel ->registerClient($name,$phone,$email,$address);
+        }
+        
     }
 
     public function editClient(){

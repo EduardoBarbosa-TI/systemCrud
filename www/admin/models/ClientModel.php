@@ -1,7 +1,7 @@
 <?php
    class ClientModel{  
 
-      public function registerClients($name,$phone,$email,$address){ 
+      public function registerClient($name,$phone,$email,$address){ 
          require_once('db/ConetionClass.php');
          $connectClass = new ConetionClass();
          $connectClass->openConetion();

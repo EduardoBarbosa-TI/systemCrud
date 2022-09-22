@@ -41,6 +41,18 @@ class ProductsModel
         return $connection->query($sql);
     }
 
+    public function editProduct($id,$price,$name,$description)
+    {
+        require_once('db/ConetionClass.php');
+        $connectClass = new ConetionClass();
+        $connectClass->openConetion();
+        $connection = $connectClass->getConn();
+
+        $sqlUpdate = "UPDATE products SET name='$name',price='$price',description='$description' WHERE idProduct='$id'"; 
+
+        return $connection -> query($sqlUpdate);
+    }
+
     public function deleteProduct($id)
     {
         require_once('db/ConetionClass.php');

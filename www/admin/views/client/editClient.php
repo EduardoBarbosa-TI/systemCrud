@@ -22,7 +22,7 @@
             
             <label for="validationDefault03" class="form-label">Endereço</label>
             <input type="text" name="address" class="form-control" id="validationDefault03" value="<?= $client['address'] ?>" required>
-            <input type="text" name="idClient" value="<?= $client['idClient'] ?>">
+            <input type="hidden" name="idClient" value="<?= $client['idClient'] ?>">
         </div>
         <div class="col-12">
             <button class="btn btn-primary" name="update" type="submit" >Submit form</button>

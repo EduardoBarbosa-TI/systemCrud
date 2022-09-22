@@ -103,6 +103,9 @@ if (!isset($_GET['controller'])) {
                     case 'consultProduct':
                         $products ->consultProducts();
                     break;
+                    case 'editProduct':
+                        $products ->editProduct();
+                    break;
                     case 'deleteProduct':
                         $products ->deleteProduct();
                     break;
