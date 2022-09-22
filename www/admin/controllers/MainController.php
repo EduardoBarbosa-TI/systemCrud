@@ -1,6 +1,5 @@
 <?php
     class MainController{
-
         public function index(){
             if(isset($_SESSION['user'])){
                 require_once('views/templates/header.php');

@@ -1,10 +1,6 @@
 <?php
-
-
-
 class ClientController
 {
-
     public function registerClients(){
         require_once('views/templates/header.php');
         require_once('views/templates/offcanva.php');
@@ -18,9 +14,11 @@ class ClientController
             $email = $_POST['email'];
             $address = $_POST['address'];
 
+            $arrayClient = array($name,$phone,$email,$address);
+
             require_once('models/ClientModel.php');
             $ClientModel = new ClientModel();
-            $ClientModel ->registerClient($name,$phone,$email,$address);
+            $ClientModel ->registerClient($arrayClient);
         }
         
     }
@@ -65,9 +63,11 @@ class ClientController
             $email = $_POST['email'];
             $address = $_POST['address'];
 
+            $arrayClient = array($name,$phone,$email,$address,$id);
+
             require_once('models/ClientModel.php');
             $ClientModel = new ClientModel();
-            $ClientModel->saveEditClient($id,$name,$email,$phone,$address);
+            $ClientModel->saveEditClient($arrayClient);
             
         }
         header('Location:?controller=client&action=listClients');

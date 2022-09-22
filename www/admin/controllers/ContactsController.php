@@ -12,7 +12,6 @@
             while ($contact = $result -> fetch_assoc()) {
                 array_push($arrayContacts, $contact);
             }
-
             require_once('views/templates/header.php');
             require_once('views/templates/offcanva.php');
             require_once('views/templates/home.php');

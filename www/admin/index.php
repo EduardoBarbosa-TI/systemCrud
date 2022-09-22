@@ -31,7 +31,7 @@ if (!isset($_GET['controller'])) {
                 switch ($_REQUEST['action']) {
                     case 'validationLogin':
                         $UserController->validationLogin();
-                        break;
+                    break;
                 }
             }
         break;
