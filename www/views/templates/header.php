@@ -36,20 +36,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="?controller=site&action=contact">Contato</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?controller=product&action=listProducts">Produtos</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <section class="container-fluid p-5">
-        <div class="row">
-            <div class="col-4 col-sm-4">
-                <h2>Produtos</h2>
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="?controller=product&action=listProducts">Listar</a>
-                    </li>
-                </ul>
-            </div>
+    <section class="container p-5 ">
+        <div class="row justify-content-center">
+            
             
         

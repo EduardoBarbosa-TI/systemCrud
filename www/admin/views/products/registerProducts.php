@@ -10,14 +10,8 @@
             <input type="text" class="form-control" name="price" id="validationDefault02" required>
         </div>
         <div class="col-md-6">
-            <select class="form-select" id="validationDefault04" name="category" required>
-                <option selected disabled value="1">Categoria</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
+            <label for="validationDefault02" class="form-label">Categoria</label>
+            <input type="text" class="form-control" name="category" id="validationDefault02" required>
         </div>
         <div class="col-md-12">
             <label for="validationTextarea" class="form-label">Textarea</label>
@@ -28,6 +22,16 @@
         </div>
     </form>
 </div>
+<?php if (isset($_POST['update'])) { ?>
+        <div class="container-fluid messageInvalid fixed-bottom ">
+            <div class="row">
+                <div class="col-12 col-sm-12 alert alert-success fade show text-center p-4" tabindex="-10" role="alert">
+                    <strong>Produto Cadastrado com sucesso</strong>
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    <?php  } ?>
 </div>
 </div>
 </div>

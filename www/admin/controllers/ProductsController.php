@@ -15,15 +15,14 @@
                 $name = $_POST['name'];
                 $price = $_POST['price'];
                 $description = $_POST['description'];
-                $category=$_POST['category'];
-                 
-                $ProductModel ->registerProducts($name,$price,$description,$category);
+                $category= $_POST['category'];
+
+                $arrayProduct =  array($name,$price,$description,$category);
+
+                $ProductModel ->registerProducts($arrayProduct);
+
+                
             } 
-
-           
-
-          
-
         }
 
         public function listProducts(){
@@ -82,9 +81,10 @@
                 $name = $_POST['name'];
                 $price = $_POST['price'];
                 $description = $_POST['description'];
+                $category = $_POST['category'];
               
               
-                $arrayProduct = array($id,$price,$name,$description);
+                $arrayProduct = array($id,$price,$name,$description,$category);
     
                 require_once('models/ProductsModel.php');
                 $ProductsModel = new ProductsModel();

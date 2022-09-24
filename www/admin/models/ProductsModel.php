@@ -2,7 +2,7 @@
 class ProductsModel
 {
 
-    public function registerProducts($name, $price, $description, $category)
+    public function registerProducts($arrayProduct)
     {
         require_once('db/ConetionClass.php');
         $connectClass = new ConetionClass();
@@ -10,7 +10,7 @@ class ProductsModel
         $connection = $connectClass->getConn();
 
 
-        $sql = "INSERT products SET name='$name', price='$price', description='$description', idCategory='$category'";
+        $sql = "INSERT products SET name='$arrayProduct[0]', price='$arrayProduct[1]', description='$arrayProduct[2]', idCategory='$arrayProduct[3]'";
 
         return $connection->query($sql);
     }
@@ -48,7 +48,7 @@ class ProductsModel
         $connectClass->openConetion();
         $connection = $connectClass->getConn();
 
-        $sqlUpdate = "UPDATE products SET name='$arrayProduct[1]',price='$arrayProduct[2]',description='$arrayProduct[3]' WHERE idProduct='$arrayProduct[0]'"; 
+        $sqlUpdate = "UPDATE products SET name='$arrayProduct[1]',price='$arrayProduct[2]',description='$arrayProduct[3]',idCategory='$arrayProduct[4]' WHERE idProduct='$arrayProduct[0]'"; 
 
         return $connection -> query($sqlUpdate);
     }

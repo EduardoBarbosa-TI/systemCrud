@@ -1,6 +1,8 @@
 <?php
    class ClientModel{  
 
+      
+
       public function registerClient($arrayClient){ 
          require_once('db/ConetionClass.php');
          $connectClass = new ConetionClass();

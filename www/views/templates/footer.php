@@ -21,72 +21,43 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="row">
-                    <div class="col-12 col-md-12">
-                        <h4 class="text-center">Você pode estar procurando por:</h4>
-                    </div>
-                    <div class="col-6 text-center d-flex justify-content-end">
-                        <a class="nav-link" href="">Projetos</a>
-                    </div>
-                    <div class="col-6 text-center d-flex">
-                        <a class="nav-link" href="">Imóveis</a>
-                    </div>
-                    <div class="col-6 text-center d-flex justify-content-end">
-                        <a class="nav-link" href="">Agenda</a>
-                    </div>
-                    <div class="col-6 text-center d-flex">
-                        <a class="nav-link" href="">Trabalhe Conosco</a>
-                    </div>
-                    <div class="col-6 text-center d-flex justify-content-end">
-                        <a class="nav-link" href="">Contrato</a>
-                    </div>
-                    <div class="col-6 text-center d-flex">
-                        <a class="nav-link" href="">Realização</a>
-                    </div>
+                    <form class="col-12 col-md-12 needs-validation" action="?controller=client&action=registerView" method="post">
+                        <div class=" form-group">
+                            <label for="validationDefault01" class="form-label">Nome</label>
+                            <input type="text" class="form-control" name="name" id="validationDefault01" required>
+                        </div>
+                        <div class="my-3 form-group">
+                            <label for="validationDefaultUsername" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+                        </div>
+                        <div class="my-3 form-group">
+                            <label for="validationDefault02" class="form-label">Telefone</label>
+                            <input type="text" name="cel" class="form-control" id="validationDefault02" required>
+                        </div>
+
+                        <div class="my-3 form-check">
+                            <div class="radio">
+                                <label class="form-check-label"><input class="form-check-input" type="radio" name="gender" value="female" checked>Feminino</label>
+                            </div>
+                            <div class="radio">
+                                <label class="form-check-label"><input class="form-check-input" type="radio" name="gender" value="male">Masculino</label>
+                            </div>
+                            <div class="radio">
+                                <label class="form-check-label"><input class="form-check-input" type="radio" name="gender" value="outro" disabled>Outro</label>
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <label for="checkbox">
+                                <input type="checkbox" name="accept">Desejo receber os comunicados do site.
+                            </label>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+                    </form>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-    <div class="row">
-        <div class="col-12 col-md-12">
-            <h4 class="text-center">Entre em contato</h3>
         </div>
-        <form class="col-12 col-md-12 needs-validation" action="?controller=client&action=registerView" method="post">
-            <div class="my-3 form-group">
-                <label for="validationDefault01" class="form-label">Nome</label>
-                <input type="text" class="form-control" name="name" id="validationDefault01" required>
-            </div>
-            <div class="my-3 form-group">
-                <label for="validationDefaultUsername" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
-            </div>
-            <div class="my-3 form-group">
-                <label for="validationDefault02" class="form-label">Telefone</label>
-                <input type="text" name="cel" class="form-control" id="validationDefault02" required>
-            </div>
-
-            <div class="my-3 form-check">
-                <div class="radio">
-                    <label class="form-check-label"><input class="form-check-input" type="radio" name="gender" value="female"checked>Feminino</label>
-                </div>
-                <div class="radio">
-                    <label class="form-check-label"><input class="form-check-input" type="radio" name="gender" value="male">Masculino</label>
-                </div>
-                <div class="radio">
-                    <label class="form-check-label"><input class="form-check-input" type="radio" name="gender" value="outro" disabled>Outro</label>
-                </div>
-            </div>
-            <div class="checkbox">
-                <label for="checkbox">
-                    <input type="checkbox" name="accept">Desejo receber os comunicados do site.
-                </label>
-            </div>
-            <button class="btn btn-primary" type="submit">Enviar</button>
-        </form>
-    </div>
-</div>
-</div>
-<a  class="btn btn-danger" href="/admin">Sistema Adiministrador</a>
+        <a class="btn btn-danger" href="/admin">Sistema Adiministrador</a>
     </footer>
-</body>
-</html>
+    </body>
 
-       
+    </html>

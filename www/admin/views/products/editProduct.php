@@ -13,19 +13,13 @@
             <input type="text" class="form-control" name="price" id="validationDefault02" value="<?= $product['price'] ?>" required>
         </div>
         <div class="col-md-6">
-            <select class="form-select" id="validationDefault04" name="category" required>
-                <option selected disabled value="">Categoria</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
+            <label for="validationDefault02" class="form-label">Categoria</label>
+            <input type="text" class="form-control" name="category" id="validationDefault02" value="<?= $product['idCategory'] ?>" required>
         </div>
         <div class="col-md-12">
             <label for="validationTextarea" class="form-label">Textarea</label>
             <textarea class="form-control" id="validationTextarea"  name="description" required><?= $product['description'] ?></textarea>
-            <input type="text" name="idProduct" value="<?= $product['idProduct'] ?>">
+            <input type="hidden" name="idProduct" value="<?= $product['idProduct'] ?>">
         </div>
         <div class="col-12">
             <button class="btn btn-primary" name="update" type="submit">Submit form</button>
