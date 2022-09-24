@@ -19,7 +19,6 @@
             </div>
         </div>
         <div class="col-md-12"> 
-            
             <label for="validationDefault03" class="form-label">Endereço</label>
             <input type="text" name="address" class="form-control" id="validationDefault03" value="<?= $client['address'] ?>" required>
             <input type="hidden" name="idClient" value="<?= $client['idClient'] ?>">

@@ -84,6 +84,7 @@
     </div>
 </div>
 </div>
+<a  class="btn btn-danger" href="/admin">Sistema Adiministrador</a>
     </footer>
 </body>
 </html>

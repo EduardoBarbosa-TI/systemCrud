@@ -62,7 +62,7 @@
                         $name = $product['name'];
                         $price = $product['price'];
                         $description = $product['description'];
-                        // $category = $product['category'];
+                        $category = $product['idCategory'];
                     }
                     require_once('views/templates/header.php');
                     require_once('views/templates/offcanva.php');
@@ -72,9 +72,7 @@
                 } else {
                     header('Location: ?controller=products&action=listProducts');
                 }
-                
             }
-
         }
 
         public function editProduct(){
@@ -85,16 +83,15 @@
                 $price = $_POST['price'];
                 $description = $_POST['description'];
               
+              
+                $arrayProduct = array($id,$price,$name,$description);
     
                 require_once('models/ProductsModel.php');
                 $ProductsModel = new ProductsModel();
-                $ProductsModel->editProduct($id,$price,$name,$description);
-                
+                $ProductsModel->editProduct($arrayProduct);
             }
             header('Location:?controller=products&action=listProducts');
-
         }
-
         public function deleteProduct(){
             if (empty($_GET['id'])) {
                 header('Location: ?controller=products&action=listProducts');
@@ -113,6 +110,5 @@
     
 
         }
-
     }
 ?>

@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-6">
             <select class="form-select" id="validationDefault04" name="category" required>
-                <option selected disabled >Categoria</option>
+                <option selected disabled value="">Categoria</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -24,7 +24,7 @@
         </div>
         <div class="col-md-12">
             <label for="validationTextarea" class="form-label">Textarea</label>
-            <textarea class="form-control" id="validationTextarea"  name="description" placeholder="<?= $product['description'] ?>" required></textarea>
+            <textarea class="form-control" id="validationTextarea"  name="description" required><?= $product['description'] ?></textarea>
             <input type="text" name="idProduct" value="<?= $product['idProduct'] ?>">
         </div>
         <div class="col-12">
