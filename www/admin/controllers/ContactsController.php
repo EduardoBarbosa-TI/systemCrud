@@ -1,11 +1,16 @@
 <?php  
     class ContactsController{
+
+        public function __construct(){
+            if(!isset($_SESSION['user'])){
+                header('Location:?controller=main&action=login');
+            } 
+        }
         
         public function registrationContacts(){
             require_once('models/ContactsModel.php');
             $contactsModel= new ContactsModel();
             $result = $contactsModel->registrationContacts();
-
 
             $arrayContacts =  array();
 
@@ -21,12 +26,10 @@
 
         }
 
-
         public function listContacts(){
             require_once('models/ContactsModel.php');
             $contactsModel= new ContactsModel();
             $result = $contactsModel->listContacts();
-
 
             $arrayContacts =  array();
 

@@ -14,12 +14,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-6">
                 <div class="card">
                     <iframe class="" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7796.499669678052!2d-69.1227585235292!3d12.298954947822313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8497a207b75667%3A0x41cf7bc8139f292a!2sJan%20Donker%2C%20Cura%C3%A7ao!5e0!3m2!1spt-BR!2sbr!4v1656723709924!5m2!1spt-BR!2sbr" width="" height="250" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 offset-md-1">
                 <div class="row">
                     <form class="col-12 col-md-12 needs-validation" action="?controller=client&action=registerView" method="post">
                         <div class=" form-group">
@@ -35,7 +35,7 @@
                             <input type="text" name="cel" class="form-control" id="validationDefault02" required>
                         </div>
 
-                        <div class="my-3 form-check">
+                        <!-- <div class="my-3 form-check">
                             <div class="radio">
                                 <label class="form-check-label"><input class="form-check-input" type="radio" name="gender" value="female" checked>Feminino</label>
                             </div>
@@ -45,12 +45,12 @@
                             <div class="radio">
                                 <label class="form-check-label"><input class="form-check-input" type="radio" name="gender" value="outro" disabled>Outro</label>
                             </div>
-                        </div>
-                        <div class="checkbox">
+                        </div> -->
+                        <!-- <div class="checkbox">
                             <label for="checkbox">
                                 <input type="checkbox" name="accept">Desejo receber os comunicados do site.
                             </label>
-                        </div>
+                        </div> -->
                         <button class="btn btn-primary" type="submit">Enviar</button>
                     </form>
                 </div>

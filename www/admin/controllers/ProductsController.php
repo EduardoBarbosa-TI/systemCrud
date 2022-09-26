@@ -1,5 +1,11 @@
 <?php   
     class ProductsController{
+        
+        public function __construct(){
+            if(!isset($_SESSION['user'])){
+                header('Location:?controller=main&action=login');
+            } 
+        }
 
         public function registerProducts(){
             require_once('models/ProductsModel.php');
@@ -92,6 +98,7 @@
             }
             header('Location:?controller=products&action=listProducts');
         }
+        
         public function deleteProduct(){
             if (empty($_GET['id'])) {
                 header('Location: ?controller=products&action=listProducts');

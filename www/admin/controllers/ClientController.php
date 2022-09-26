@@ -1,6 +1,12 @@
 <?php
 class ClientController
 {
+    public function __construct(){
+        if(!isset($_SESSION['user'])){
+            header('Location:?controller=main&action=login');
+        } 
+    }
+
     public function registerClients(){
         require_once('views/templates/header.php');
         require_once('views/templates/offcanva.php');
