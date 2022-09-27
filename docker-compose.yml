@@ -1,6 +1,3 @@
-# Ambiente para Programação WEB
-# Prof. Vinícius Magnus
-# apache + php + mysql + phpmyqdmin
 version: "3.8"
 services:
     www:

@@ -15,6 +15,7 @@
          return $connection -> query($sql);
       
       }
+      
       public function consultClient($id){
          require_once('db/ConetionClass.php');
          $connectClass = new ConetionClass();
