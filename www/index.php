@@ -25,12 +25,17 @@
                 }
             break;
             case 'client':
+                
                 require_once('controllers/ClientController.php');
                 $ClientController = new ClientController();
+
                 if(!isset($_GET['action'])){
+
                     $ClientController -> index();
+
                 }else {
                     switch ($_REQUEST['action']) {
+
                         case 'register':
                             $ClientController -> register();
                         break;

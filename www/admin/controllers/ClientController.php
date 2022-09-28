@@ -1,18 +1,28 @@
 <?php
 class ClientController
 {
+    var $ClientModel;
+    
     public function __construct(){
         if(!isset($_SESSION['user'])){
             header('Location:?controller=main&action=login');
-        } 
+        }
+
+        require_once('models/ClientModel.php');
+        $this -> ClientModel = new ClientModel();  
     }
 
-    public function registerClients(){
+    public function registerClient(){
+
         require_once('views/templates/header.php');
         require_once('views/templates/offcanva.php');
         require_once('views/templates/home.php');
-        require_once('views/client/registerClients.php');
-        require_once('views/templates/footer.php');
+        require_once('views/client/registerClient.php');
+        require_once('views/templates/footer.php');  
+
+    }
+
+    public function registerClientAction(){
 
         if(isset($_POST['submit'])){
             $name = $_POST['name'];
@@ -22,23 +32,25 @@ class ClientController
 
             $arrayClient = array($name,$phone,$email,$address);
 
-            require_once('models/ClientModel.php');
-            $ClientModel = new ClientModel();
-            $ClientModel ->registerClient($arrayClient);
+            $this -> ClientModel ->registerClient($arrayClient);
         }
-        
+        $_SESSION['submit'] = true;
+        header('Location: ?controller=client&action=registerClient');
+
     }
 
     public function editClient(){
+
         if (empty($_GET['id'])) {
             header('Location: ?controller=client&action=listClients');
         } else {
+
             $id = $_GET['id'];
-            require_once('models/ClientModel.php');
-            $clientModel = new ClientModel();
-            $result = $clientModel->consultClient($id);
+
+            $result = $this -> ClientModel->consultClient($id);
 
             $arrayClients =  array();
+
             if ($result->num_rows > 0) {
 
                 while ($client = $result->fetch_assoc()) {
@@ -49,12 +61,12 @@ class ClientController
                     $adreess = $client['address'];
                 }
 
-
                 require_once('views/templates/header.php');
                 require_once('views/templates/offcanva.php');
                 require_once('views/templates/home.php');
                 require_once('views/client/editClient.php');
                 require_once('views/templates/footer.php');
+
             } else {
                 header('Location: ?controller=client&action=listClients');
             }
@@ -71,9 +83,7 @@ class ClientController
 
             $arrayClient = array($name,$phone,$email,$address,$id);
 
-            require_once('models/ClientModel.php');
-            $ClientModel = new ClientModel();
-            $ClientModel->saveEditClient($arrayClient);
+            $this -> ClientModel->saveEditClient($arrayClient);
             
         }
         header('Location:?controller=client&action=listClients');
@@ -84,12 +94,11 @@ class ClientController
             header('Location: ?controller=client&action=listClients');
         } else {
             $id = $_GET['id'];
-            require_once('models/ClientModel.php');
-            $ClientModel = new ClientModel();
-            $result = $ClientModel->consultClient($id);
+    
+            $result = $this -> ClientModel->consultClient($id);
 
             if ($result->num_rows > 0) {
-                $ClientModel->deleteClient($id);
+                $this -> ClientModel->deleteClient($id);
             } 
             
             header('Location: ?controller=client&action=listClients');
@@ -121,9 +130,7 @@ class ClientController
     }
 
     public function listClients(){
-        require_once('models/ClientModel.php');
-        $clientModel = new ClientModel();
-        $result = $clientModel->listClients();
+        $result = $this -> ClientModel->listClients();
 
 
         $arrayClients =  array();

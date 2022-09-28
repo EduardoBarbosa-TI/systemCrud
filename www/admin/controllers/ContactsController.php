@@ -1,16 +1,19 @@
 <?php  
     class ContactsController{
+        var $ContactsModel;
 
         public function __construct(){
             if(!isset($_SESSION['user'])){
                 header('Location:?controller=main&action=login');
             } 
+
+            require_once('models/ContactsModel.php');
+            $this -> ContactsModel= new ContactsModel();
         }
         
         public function registrationContacts(){
-            require_once('models/ContactsModel.php');
-            $contactsModel= new ContactsModel();
-            $result = $contactsModel->registrationContacts();
+          
+            $result = $this ->ContactsModel->registrationContacts();
 
             $arrayContacts =  array();
 
@@ -27,9 +30,7 @@
         }
 
         public function listContacts(){
-            require_once('models/ContactsModel.php');
-            $contactsModel= new ContactsModel();
-            $result = $contactsModel->listContacts();
+            $result = $this ->ContactsModel->listContacts();
 
             $arrayContacts =  array();
 

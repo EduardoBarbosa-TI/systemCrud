@@ -44,14 +44,13 @@ if (!isset($_GET['controller'])) {
             } else {
                 switch ($_REQUEST['action']) {
                     case 'registerClient':
-                            $ClientController->registerClients();
-                        break;
+                        $ClientController->registerClient();
+                    break;
+                    case 'registerClientAction':
+                        $ClientController->registerClientAction();
+                    break;
                     case 'editClient':
-                        if (!isset($_GET['id'])) {
-                            $ClientController->registerClients();
-                        } else {
-                            $ClientController->editClient();
-                        }
+                        $ClientController->editClient();
                     break;
                     case 'saveEditClient':
                         $ClientController->saveEditClient();  

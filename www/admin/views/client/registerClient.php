@@ -1,7 +1,7 @@
 
 <div class="col-12 col-sm-12">
     <h2>Cadastro de Clientes</h2>
-    <form class="row g-3" method="POST" action="?controller=client&action=registerClient">
+    <form class="row g-3" method="POST" action="?controller=client&action=registerClientAction">
         <div class="col-md-12">
             <label for="validationDefault01" class="form-label">Nome do Cliente</label>
             <input type="text" class="form-control" name="name" id="validationDefault01" required>
@@ -25,7 +25,7 @@
         </div>
     </form>
 </div>
-<?php if (isset($_POST['submit'])) { ?>
+<?php if (isset($_SESSION['submit'])) { ?>
         <div class="container-fluid messageInvalid fixed-bottom ">
             <div class="row">
                 <div class="col-12 col-sm-12 alert alert-success fade show text-center p-4" tabindex="-10" role="alert">
@@ -34,7 +34,9 @@
                 </div>
             </div>
         </div>
-    <?php  } ?>
+    <?php  
+    unset($_SESSION['submit']);
+    } ?>
 </div>
 </div>
 </div>

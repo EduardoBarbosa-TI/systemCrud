@@ -1,29 +1,26 @@
 <?php
     class ContactsModel{
+       var $ConnectClass;
+       var $Connection;
+
+        public function __contruct(){
+            require_once('db/ConetionClass.php');
+            $this -> ConnectClass = new ConetionClass();
+            $this -> ConnectClass->openConetion();
+            $this -> Connection = $this -> ConnectClass->getConn();
+        }
 
         public function registrationContacts(){
-            require_once('db/ConetionClass.php');
-            $connectClass = new ConetionClass();
-            $connectClass->openConetion();
-            $connection = $connectClass->getConn();
-
-            $sql = "SELECT * FROM contacts
-            
-            "; 
+            $sql = "SELECT * FROM contacts"; 
     
-            return $connection -> query($sql);
+            return $this -> Connection -> query($sql);
         }
 
 
         public function listContacts(){
-            require_once('db/ConetionClass.php');
-            $connectClass = new ConetionClass();
-            $connectClass->openConetion();
-            $connection = $connectClass->getConn();
-
             $sql = "SELECT * FROM contacts"; 
     
-            return $connection -> query($sql);
+            return $this -> Connection -> query($sql);
         }
     }
 ?>

@@ -1,16 +1,18 @@
 <?php   
     class ProductsController{
+        var $ProductModel;
         
         public function __construct(){
             if(!isset($_SESSION['user'])){
                 header('Location:?controller=main&action=login');
             } 
+
+            require_once('models/ProductsModel.php');
+            $this -> ProductModel= new ProductsModel();
+
         }
 
         public function registerProducts(){
-            require_once('models/ProductsModel.php');
-            $ProductModel= new ProductsModel();
-
             require_once('views/templates/header.php');
             require_once('views/templates/home.php');
             require_once('views/templates/offcanva.php');
@@ -25,16 +27,14 @@
 
                 $arrayProduct =  array($name,$price,$description,$category);
 
-                $ProductModel ->registerProducts($arrayProduct);
+                $this -> ProductModel ->registerProducts($arrayProduct);
 
                 
             } 
         }
 
         public function listProducts(){
-            require_once('models/ProductsModel.php');
-            $productModel= new ProductsModel();
-            $result = $productModel->listProducts();
+            $result = $this -> ProductModel->listProducts();
 
             $arrayProducts =  array();
 
@@ -55,9 +55,7 @@
                 header('Location: ?controller=products&action=listProducts');
             } else {
                 $id = $_GET['id'];
-                require_once('models/ProductsModel.php');
-                $ProductModel = new ProductsModel();
-                $result = $ProductModel->consultProduct($id);
+                $result = $this -> ProductModel->consultProduct($id);
         
                 $arrayProducts =  array();
     
@@ -92,9 +90,8 @@
               
                 $arrayProduct = array($id,$price,$name,$description,$category);
     
-                require_once('models/ProductsModel.php');
-                $ProductsModel = new ProductsModel();
-                $ProductsModel->editProduct($arrayProduct);
+          
+                $this -> ProductsModel->editProduct($arrayProduct);
             }
             header('Location:?controller=products&action=listProducts');
         }
@@ -104,12 +101,10 @@
                 header('Location: ?controller=products&action=listProducts');
             } else {
                 $id = $_GET['id'];
-                require_once('models/ProductsModel.php');
-                $ProductModel = new ProductsModel();
-                $result = $ProductModel->consultProduct($id);
+                $result = $this -> ProductModel->consultProduct($id);
     
                 if ($result->num_rows > 0) {
-                    $ProductModel->deleteProduct($id);
+                    $this -> ProductModel->deleteProduct($id);
                 } 
                 
                 header('Location: ?controller=products&action=listProducts'); 

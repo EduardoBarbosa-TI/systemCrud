@@ -19,6 +19,5 @@
             session_destroy();
             header('Location:?controller=main&action=login');
         }
-
     }
 ?>

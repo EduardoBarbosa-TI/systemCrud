@@ -15,8 +15,6 @@
 </head>
 
 <body>
-
-
     <header class="container-fluid bg-primary py-5">
         <h1 class="text-white m-4 mt-0">Login</h1>
     </header>
@@ -46,7 +44,6 @@
                                 </div>
                                 <div class="col-6 col-sm-6 d-flex justify-content-end align-items-center">
                                     <a class="nav nav-link" href="#">Cadastre <i class="bi bi-arrow-right-short" style="font-size: 1.3em;"></i></a>
-
                                 </div>
                             </div>
                         </div>
