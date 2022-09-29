@@ -2,6 +2,7 @@
 class ProductsModel
 {
     var $ConnectClass;
+    
     var $Connection;
 
     public function __contruct(){
@@ -13,7 +14,6 @@ class ProductsModel
 
     public function registerProducts($arrayProduct)
     {
-
         $sql = "INSERT products SET name='$arrayProduct[0]', price='$arrayProduct[1]', description='$arrayProduct[2]', idCategory='$arrayProduct[3]'";
 
         return $this -> Connection->query($sql);
