@@ -7,6 +7,7 @@
             <th>Email</th>
             <th>Telefone</th>
             <th>Endereço</th>
+            <th>Foto</th>
         </tr>
         <?php
         foreach ($arrayClients as $client) {
@@ -26,6 +27,15 @@
                 </td>
                 <td>
                     <?= $client['address'] ?>
+                </td>
+                <td>
+                    <?php
+                        if(is_file("assets/img/client/{$client['idClient']}.jpg")){
+                            echo "<img class='img-fluid' src='assets/img/client/{$client['idClient']}.jpg'>";
+                        }else{
+                            echo 'nao tem foto';
+                        }
+                    ?>
                 </td>
                 <td>
                     <a class="btn btn-sm btn-primary me-2" href='?controller=client&action=editClient&id=<?= $client['idClient'] ?>'><i class="bi bi-pencil"></i></a>

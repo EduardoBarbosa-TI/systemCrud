@@ -32,7 +32,9 @@ class ClientController
                 'address' => $_POST['address'], 
             );
          $idInsertClient = $this -> ClientModel ->registerClient($client); 
-         $_FILES     
+         if(isset($_FILES["photo"]) && $_FILES["photo"]["name"] != ''){
+            $this -> savePhoto($idInsertClient);
+         }
         }   
         $_SESSION['submit'] = true;
         header('Location: ?controller=client&action=registerClient');
@@ -81,8 +83,12 @@ class ClientController
             $address = $_POST['address'];
 
             $arrayClient = array($name,$phone,$email,$address,$id);
-
             $this -> ClientModel->saveEditClient($arrayClient);
+            if(isset($_FILES["photo"]) && $_FILES["photo"]["name"] != ''){
+                $this -> savePhoto($id);
+             }
+
+            
             
         }
         header('Location:?controller=client&action=listClients');
@@ -99,9 +105,10 @@ class ClientController
             if ($result->num_rows > 0) {
                 $this -> ClientModel->deleteClient($id);
             } 
-            
+            if(is_file("assets/img/client/{$id}.jpg")){
+                unlink("assets/img/client/{$id}.jpg");
+            }
             header('Location: ?controller=client&action=listClients');
-            
         }
 
     }
@@ -144,4 +151,25 @@ class ClientController
         require_once('views/client/listClients.php');
         require_once('views/templates/footer.php');
     }
+
+    public function savePhoto($id){
+        $foto_temp = $_FILES["photo"]["tmp_name"];	
+        $foto_name = $_FILES["photo"]["name"];
+
+        $extensao = str_replace('.','',strrchr($foto_name, '.'));
+        $img = null;
+
+        if ($extensao == 'jpg' || $extensao == 'jpeg') { 
+            $img = imagecreatefromjpeg($foto_temp);
+        } else if ($extensao == 'png') { 
+            $img = imagecreatefrompng($foto_temp);
+        } else if ($extensao == 'gif') { 
+            $img = imagecreatefromgif($foto_temp); 
+        }  else  {
+            $img = imagecreatefromjpeg($foto_temp);
+        }   
+             
+        $localFile = "assets/img/client/{$id}.jpg";
+        imagejpeg($img, $localFile); 
+        }
 }

@@ -1,7 +1,7 @@
 
 <div class="col-12 col-sm-12">
     <h2>Cadastro de Clientes</h2>
-    <form class="row g-3" method="POST" action="?controller=client&action=registerClientAction">
+    <form class="row g-3" method="POST" action="?controller=client&action=registerClientAction" enctype='multipart/form-data'>
         <div class="col-md-12">
             <label for="validationDefault01" class="form-label">Nome do Cliente</label>
             <input type="text" class="form-control" name="name" id="validationDefault01" required>
