@@ -25,18 +25,17 @@ class ClientController
     public function registerClientAction(){
 
         if(isset($_POST['submit'])){
-            $name = $_POST['name'];
-            $phone = $_POST['phone'];
-            $email = $_POST['email'];
-            $address = $_POST['address'];
-
-            $arrayClient = array($name,$phone,$email,$address);
-
-            $this -> ClientModel ->registerClient($arrayClient);
-        }
+            $client = array(
+                'name' => $_POST['name'],
+                'phone' => $_POST['phone'],
+                'email' => $_POST['email'],
+                'address' => $_POST['address'], 
+            );
+         $idInsertClient = $this -> ClientModel ->registerClient($client); 
+         $_FILES     
+        }   
         $_SESSION['submit'] = true;
         header('Location: ?controller=client&action=registerClient');
-
     }
 
     public function editClient(){

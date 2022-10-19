@@ -20,6 +20,10 @@
             <label for="validationDefault03" class="form-label">Endereço</label>
             <input type="text" name="address" class="form-control" id="validationDefault03" required>
         </div>
+        <div class="col-md-12">
+            <label class="form-label">Foto:</label>
+            <input type="file" name="photo" class="form-control">
+        </div>
         <div class="col-12">
             <button class="btn btn-primary" name='submit' type="submit">Submit form</button>
         </div>

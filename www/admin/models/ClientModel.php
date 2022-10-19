@@ -11,11 +11,13 @@
   
       }
 
-      public function registerClient($arrayClient){ 
+      public function registerClient($client){ 
       
-         $sql= "INSERT clients SET name='$arrayClient[0]',phone='$arrayClient[1]',email='$arrayClient[2]',address='$arrayClient[3]'"; 
+         $sql= "INSERT clients SET name='$client[name]',phone='$client[phone]',email='$client[email]',address='$client[address]'"; 
    
-         return $this -> Connection -> query($sql);
+         $this -> Connection -> query($sql);
+
+         return $this -> Connection -> insert_id;
       }
       
       public function consultClient($id){
